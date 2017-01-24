@@ -1,4 +1,4 @@
-angular.module('devmtnTravel').service('mainSrv', function(){
+angular.module('devmtnTravel').service('mainService', function($http){
 
     this.travelInfo = [{
         city: 'New York',
@@ -25,4 +25,12 @@ angular.module('devmtnTravel').service('mainSrv', function(){
 
 
     }]
-})
+
+      this.booked = function(id) {
+        for (var i = 0; i < this.travelInfo.length; i++){
+          if(this.travelInfo[i].id === parseInt(id)) {
+            return this.travelInfo[i];
+          }
+        }
+      };
+});
